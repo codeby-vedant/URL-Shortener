@@ -25,7 +25,7 @@
         shortId
      },{
         $push:{
-            visitHistory:{timestamps:Date.now()},
+            visitHistory:{timestamp:Date.now()},
         }
 
      }

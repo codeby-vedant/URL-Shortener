@@ -1,4 +1,5 @@
 const express=require('express');
+require('dotenv').config();
 const path=require('path');
 const {router}=require('./Routes/url');
 const {userRouter}=require('./Routes/user');
@@ -9,8 +10,12 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 const { onlyToLoggedUser } = require('./middleware/auth');
 
-const PORT=8001;
-connectToDB("mongodb://localhost:27017/url-shortener");
+const PORT=process.env.PORT||8001;
+connectToDB(process.env.mongo_URL)
+ .then(()=>console.log(`Server started at PORT ${PORT}`))
+ .catch((err)=>console.log(err));
+ 
+ 
  
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
