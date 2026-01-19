@@ -6,7 +6,7 @@ async function createUser(req,res){
      const body=req.body;
      if(!body.name||!body.email||!body.password)
         return res.redirect('/signup');
-    const alreadyLogged=await User.findOne({email});
+    const alreadyLogged=await User.findOne({email:body.email});
     if(alreadyLogged) return res.redirect("/login");
    await  User.create({
        name:body.name,
