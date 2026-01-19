@@ -17,9 +17,9 @@ async function createUser(req,res){
 async function checkLoggedIn(req,res){
       const body=req.body;
      if(!body.email||!body.password)
-        return res.redirect('/login',{ msg:'All credential are required'}); 
+        return res.redirect('/login'); 
     const loggedUser=await User.findOne({email:body.email,password:body.password});
-    if(!loggedUser)  return res.redirect('/login',{ msg:'Invalid Credentails'});  
+    if(!loggedUser)  return res.redirect('/login');  
     // const sessionId=uuidv4();
     // setUser(sessionId,loggedUser);
     // res.cookie('uid',sessionId);
