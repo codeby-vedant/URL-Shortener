@@ -23,7 +23,7 @@ Authentication: JWT (JSON Web Tokens)
 Template Engine: EJS
 Other Tools: Cookie-parser, dotenv
 📁 Project Structure
-Copy code
+
 
 URL-Shortener/
 │
